@@ -29,7 +29,7 @@ function Orders() {
       setLoading(true);
       setError("");
 
-      const response = await api.get("/order");
+      const response = await api.get("/api/order");
 
       setOrders(
         response.data.orders || response.data.data || []
@@ -67,11 +67,15 @@ function Orders() {
     setError("");
 
     try {
-      await api.post("/order", {
-        ...formData,
-        quantity: Number(formData.quantity),
-        unitPrice: Number(formData.unitPrice),
-      });
+//       console.log(
+//   "Token before order:",
+//   localStorage.getItem("token") ? "Found" : "Not Found"
+// );
+      await api.post("/api/order", {
+  ...formData,
+  quantity: Number(formData.quantity),
+  unitPrice: Number(formData.unitPrice),
+});
 
       setMessage("Order created successfully!");
 

@@ -60,7 +60,7 @@ function OrderCategory() {
       setError("");
 
       try {
-        const response = await api.get("/order");
+        const response = await api.get("/api/order");
         const data = response.data;
 
         const allOrders = Array.isArray(data)

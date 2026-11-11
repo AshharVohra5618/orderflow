@@ -3,7 +3,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:3000/api",
+  baseURL: "https://backend-mu-eight-7zlk1nae8d.vercel.app",
   headers: {
     "Content-Type": "application/json",
   },
@@ -13,6 +13,8 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
+
+    // console.log("Token:", token ? "Found" : "Not Found");
 
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
